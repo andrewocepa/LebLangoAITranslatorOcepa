@@ -1,5 +1,6 @@
 
 import os
+TOKEN = os.getenv("BOT_TOKEN")
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import (
     Application,
