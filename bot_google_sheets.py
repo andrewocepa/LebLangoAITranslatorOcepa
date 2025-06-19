@@ -17,9 +17,17 @@ from oauth2client.service_account import ServiceAccountCredentials
 CHOOSE_DIRECTION, FIRST_SENTENCE, SECOND_SENTENCE = range(3)
 
 # Google Sheets setup
+# def append_to_sheet(lango, english):
+#     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+#     creds_dict = json.loads(os.getenv("GOOGLE_CREDS"))
+#     creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
+#     client = gspread.authorize(creds)
+#     sheet = client.open("Lango-English Dataset").sheet1
+#     sheet.append_row([lango, english])
 def append_to_sheet(lango, english):
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
     creds_dict = json.loads(os.getenv("GOOGLE_CREDS"))
+    creds_dict["private_key"] = creds_dict["private_key"].replace("\\n", "\n")
     creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
     client = gspread.authorize(creds)
     sheet = client.open("Lango-English Dataset").sheet1
