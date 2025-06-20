@@ -39,9 +39,9 @@ def append_to_sheet(lango, english):
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     reply_keyboard = [["Lango", "English"]]
     await update.message.reply_text(
-        "👋 Welcome! / Wajoli!\n"
+        "👋 Welcome! / Ojoli!\n"
         "Let’s collect Lango ↔ English sentence pairs. / Wan otimo kube me cik Lango ki English.\n"
-        "Please choose the language of your sentence: / Yer leb me nyinge:",
+        "Please choose the language : / Yer leb :",
         reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True, resize_keyboard=True),
     )
     return CHOOSE_DIRECTION
@@ -50,7 +50,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 async def choose_direction(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     lang = update.message.text.lower()
     if lang not in ["lango", "english"]:
-        await update.message.reply_text("Please choose either Lango or English. / Yer Lango onyo English.")
+        await update.message.reply_text("Please choose either Lango or English. / Yer Leb Lango onyo Leb Munu.")
         return CHOOSE_DIRECTION
 
     context.user_data["direction"] = lang
@@ -81,12 +81,12 @@ async def get_second_sentence(update: Update, context: ContextTypes.DEFAULT_TYPE
     append_to_sheet(lango, english)
 
     await update.message.reply_text("✅ Sentence saved! / Kube kicoko!\n"
-                                    "Would you like to submit another? (yes/no) / I mito cwaa mukene?")
+                                    "Would you like to submit another? (yes/no) / Imito cwalo en okene?")
     return CHOOSE_DIRECTION
 
 # Handle stop
 async def stop(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
-    await update.message.reply_text("👋 Thank you for your help! / Apwoyo keni!")
+    await update.message.reply_text("👋 Thank you for your help! / Apwoyo konyi!")
     return ConversationHandler.END
 
 def main():
