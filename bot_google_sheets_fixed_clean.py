@@ -40,7 +40,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     reply_keyboard = [["Lango", "English"]]
     await update.message.reply_text(
         "👋 Welcome! / Ojoli!\n"
-        "Let’s collect Lango ↔ English sentence pairs. / Kong Oraa kop iLebLango kede Leb Munu.\n"
+        "Let’s collect Lango ↔ English sentence pairs. / Kong Oraa kop iLebLango kede agonyere iLebMunu.\n"
         "Please choose the language : / Yer leb :",
         reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True, resize_keyboard=True),
     )
@@ -50,7 +50,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 async def choose_direction(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     lang = update.message.text.lower()
     if lang not in ["lango", "english"]:
-        await update.message.reply_text("Please choose either Lango or English. / Yer Leb Lango onyo Leb Munu.")
+        await update.message.reply_text("Please choose either Lango or English. / Yer Leblango onyo Lebmunu.")
         return CHOOSE_DIRECTION
 
     context.user_data["direction"] = lang
