@@ -54,8 +54,8 @@ async def choose_direction(update: Update, context: ContextTypes.DEFAULT_TYPE) -
         return CHOOSE_DIRECTION
 
     context.user_data["direction"] = lang
-    await update.message.reply_text(f"Enter your sentence in {lang.capitalize()}:\n"
-                                    f"Cwaa nying i {lang.capitalize()}.")
+    await update.message.reply_text(f"Enter the sentence here in {lang.capitalize()}:\n"
+                                    f"Coo kopono kan i {lang.capitalize()}.")
     return FIRST_SENTENCE
 
 # Get source sentence
