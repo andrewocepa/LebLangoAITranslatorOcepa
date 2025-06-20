@@ -40,7 +40,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     reply_keyboard = [["Lango", "English"]]
     await update.message.reply_text(
         "👋 Welcome! / Ojoli!\n"
-        "Let’s collect Lango ↔ English sentence pairs. / Wan otimo kube me cik Lango ki English.\n"
+        "Let’s collect Lango ↔ English sentence pairs. / Kong Oraa kop iLebLango kede Leb Munu.\n"
         "Please choose the language : / Yer leb :",
         reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True, resize_keyboard=True),
     )
